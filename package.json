@@ -8,5 +8,9 @@
   "keywords": [],
   "author": "Zablon Oigo",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "aws-sdk": "^2.1692.0",
+    "serverless-iam-roles-per-function": "^3.2.0"
+  }
 }
