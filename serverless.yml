@@ -10,3 +10,6 @@ provider:
   timeout: 10 
   environment:
     FILE_UPLOAD_BUCKET_NAME: ${self:custom.fileBucketName}
+
+plugins:
+  - serverless-iam-roles-per-function
