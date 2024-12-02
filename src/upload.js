@@ -8,16 +8,21 @@ module.exports.handler= async event =>{
         isBase64Encoded: false,
         statusCode: 200,
     };
+    try {
+        const parsedBody = JSON.parse(event.body);
+        const base64File = parsedBody.file;
+        const decodedFile = Buffer.from(base64File.replace(/^data:image\/\w+;base64,/, ""), "base64");
+        const params = {
+            Bucket: BUCKET_NAME,
+            Key: parsedBody.fileKey,
+            Body: decodedFile,
+            ContentType: "image/jpeg",
+        };
+        const uploadResult = await s3.upload(params).promise();
+    }catch (e) {
+        console.error("Failed to upload file: ", e);
+        response.body = JSON.stringify({ message: "File failed to upload.", errorMessage: e });
+        response.statusCode = 500;
+    }
 
-}
-try {
-    const parsedBody = JSON.parse(event.body);
-    const base64File = parsedBody.file;
-    const decodedFile = Buffer.from(base64File.replace(/^data:image\/\w+;base64,/, ""), "base64");
-    const params = {
-        Bucket: BUCKET_NAME,
-        Key: parsedBody.fileKey,
-        Body: decodedFile,
-        ContentType: "image/jpeg",
-    };
 }
