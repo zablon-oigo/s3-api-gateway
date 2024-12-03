@@ -34,6 +34,10 @@ functions:
     handler: src/get.handler
     name: s3-file-get
     description: A lambda handler that retrieves file from s3 bucket based on API Gateway trigger.
+    events:
+      - http:
+          path: file/{fileKey}
+          method: GET
 resources:
   Resources:
     FileBucket:
