@@ -17,4 +17,10 @@ module.exports.handler=async(event)=>{
         const data= await s3.getObject(params).promise();
         response.body=JSON.stringify({message:"Successfully retrieved file from S3", data})
     }
+    catch(e){
+        console.error(e)
+        response.body=JSON.stringify({message: "Failed to get file", errorMessage: e})
+        response.statusCode=500;
+    }
+    return response;
 }
