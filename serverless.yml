@@ -50,7 +50,7 @@ functions:
       - Effect: 'Allow'
         Action:
           - 's3:DeleteObject'
-        Resource: 
+        Resource: arn:aws:s3:::${self:custom.fileBucketName}/*
       
 resources:
   Resources:
