@@ -38,6 +38,10 @@ functions:
       - http:
           path: file/{fileKey}
           method: GET
+  s3FileDelete:
+    handler: src/delete.handler
+    name: s3-file-delete
+    description: A lambda handler that deletes a file from an S3 bucket based on API Gateway trigger.
 resources:
   Resources:
     FileBucket:
