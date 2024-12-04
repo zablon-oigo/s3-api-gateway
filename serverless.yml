@@ -46,6 +46,11 @@ functions:
       - http:
           path: file/{fileKey}
           method: DELETE
+    iamRoleStatements:
+      - Effect: 'Allow'
+        Action:
+          - 's3:DeleteObject'
+        Resource: 
       
 resources:
   Resources:
