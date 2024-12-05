@@ -14,5 +14,6 @@ module.exports.handler=async(event)=>{
             Key: decodeURIComponent(event.pathParameters.fileKey)
         }
         const deleteResult= await s3.deleteObject(params).promise();
+        response.body = JSON.stringify({message:"Successfully deleted file from S3.", deleteResult})
     }
 }
