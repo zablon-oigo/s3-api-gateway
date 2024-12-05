@@ -13,5 +13,6 @@ module.exports.handler=async(event)=>{
             Bucket: BUCKET_NAME,
             Key: decodeURIComponent(event.pathParameters.fileKey)
         }
+        const deleteResult= await s3.deleteObject(params).promise();
     }
 }
