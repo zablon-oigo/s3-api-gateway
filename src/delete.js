@@ -8,4 +8,10 @@ module.exports.handler=async(event)=>{
         isBase64Encoded: false,
         statusCode: 200,
     };
+    try{
+        const params={
+            Bucket: BUCKET_NAME,
+            Key: decodeURIComponent(event.pathParameters.fileKey)
+        }
+    }
 }
