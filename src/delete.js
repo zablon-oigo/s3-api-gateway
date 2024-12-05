@@ -18,5 +18,6 @@ module.exports.handler=async(event)=>{
     }
     catch(e){
         console.error(e);
+        response.body= JSON.stringify({message:"Failed to delete. ", errorMessage: e});
     }
 }
