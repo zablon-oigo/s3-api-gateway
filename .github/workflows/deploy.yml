@@ -1,0 +1,4 @@
+name: Deploy File Upload Service
+
+on:
+    workflow_dispatch:
