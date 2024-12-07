@@ -2,3 +2,6 @@
 ### Architecture
 
 ![s3-crud](https://github.com/user-attachments/assets/26b9c7c5-5f68-4312-9265-f330aa4c2e6c)
+
+S3 API Gateway
+This API enables seamless interaction with an Amazon S3 bucket. 
